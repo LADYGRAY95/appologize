@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #ff6f61;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .buttons button:hover {
+            background-color: #ff3b2f;
+        }
+        .stickers {
+            margin-top: 20px;
+        }
+        .stickers img {
+            width: 200px;
+            margin: 10px;
+        }
+        #yesImage {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 id="questionText">Did you forgive me?</h1>
+<div id="buttonsDiv" class="buttons">
+    <button id="yesButton" onclick="showYesImage()">Yes </button>
+    <button id="noButton" onmouseover="moveNoButton()" onclick="alert('Oh no! I\'m really sorry!')">No</button>
+</div>
+<div id="stickersDiv" class="stickers">
+    <img src="https://media.giphy.com/media/xT1XGwu6nmcfEXPqUM/giphy.gif?cid=ecf05e47q3wt1vxqgrccqyo0l13rav6etiz2h32idf8cpi9x&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Cute Sticker 3">
+</div>
+<img id="yesImage" src="https://media.giphy.com/media/9d3LQ6TdV2Flo8ODTU/giphy.gif?cid=790b76119xwihzwljfjbkedobl882qb35hkizx3dunyznxpp&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Yes Image">
+
+<script>
+    function showYesImage() {
+        document.getElementById("questionText").style.display = "none";
+        document.getElementById("buttonsDiv").style.display = "none";
+        document.getElementById("stickersDiv").style.display = "none";
+        document.getElementById("yesImage").style.display = "block";
+        alert('Yay! Thank you!');
+    }
+
+    function moveNoButton() {
+        var noButton = document.getElementById("noButton");
+        var body = document.body;
+        var maxX = body.offsetWidth - noButton.offsetWidth;
+        var maxY = body.offsetHeight - noButton.offsetHeight;
+        var newX = Math.floor(Math.random() * maxX);
+        var newY = Math.floor(Math.random() * maxY);
+        noButton.style.position = "absolute";
+        noButton.style.left = newX + "px";
+        noButton.style.top = newY + "px";
+    }
+</script>
+</body>
+</html>
